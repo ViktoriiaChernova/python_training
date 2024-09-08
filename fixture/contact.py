@@ -14,7 +14,6 @@ class ContactHelper:
 
     def create(self, contact):
         wd = self.app.wd
-        self.return_homepage()
         # fill contact form
         self.fill_contact_form(contact)
         # submit contact creation
@@ -31,6 +30,7 @@ class ContactHelper:
 
     def edit(self, contact):
         wd = self.app.wd
+        self.return_homepage()
         # choose contact for editing
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
         # editing contact
