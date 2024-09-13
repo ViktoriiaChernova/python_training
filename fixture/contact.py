@@ -5,7 +5,9 @@ class ContactHelper:
 
     def return_homepage(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not (wd.current_url.endswith("/index.php") and len(wd.find_elements_by_name("searchstring")) > 0):
+            wd.find_element_by_link_text("home").click()
+
 
     def open_new_contact_form(self):
         wd = self.app.wd
