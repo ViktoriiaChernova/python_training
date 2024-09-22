@@ -145,6 +145,6 @@ class ContactHelper:
             self.contact_cache = []
             for element in wd.find_elements_by_name("entry"):
                 id = element.find_element_by_name("selected[]").get_attribute("id")
-                title = element.find_element_by_name("selected[]").get_attribute("title")
-                self.contact_cache.append(Contact(firstlastname=title, id=id))
+                text = element.find_element_by_css_selector("td:nth-child(2)").get_attribute("textContent")
+                self.contact_cache.append(Contact(lastname=text, id=id))
         return list(self.contact_cache)
