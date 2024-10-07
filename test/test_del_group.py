@@ -1,6 +1,5 @@
 import random
 from model.group import Group
-from random import randrange
 
 def test_delete_some_group(app, db, check_ui):
     if len(db.get_group_list()) == 0:
