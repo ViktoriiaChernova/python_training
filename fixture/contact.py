@@ -216,6 +216,13 @@ class ContactHelper:
         wd.find_element_by_name("add").click()
         self.contact_cache = None
 
+    def delete_contact_from_group_by_id(self, c_id, g_id):
+        wd = self.app.wd
+        self.return_homepage()
+        wd.find_element_by_css_selector('select[name="group"] > option[value="%s"]' % g_id).click()
+        wd.find_element_by_css_selector("input[value='%s']" % c_id).click()
+        wd.find_element_by_name("remove").click()
+        self.contact_cache = None
 
 
 

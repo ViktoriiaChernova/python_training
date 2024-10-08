@@ -12,8 +12,8 @@ def test_add_contact_to_group(app, db):
                                bday="29", bmonth="September", byear="1989", aday="19", amonth="February", ayear="1989"))
     if len(db.get_group_list()) == 0:
         app.group.create(Group(name="test"))
-    c_id = random.choice(db.get_contact_list()).id
-    contact = Contact(id=c_id)
+    contact = random.choice(db.get_contact_list())
+    c_id = contact.id
     g_id = random.choice(db.get_group_list()).id
     contacts_in_group_before_adding = db.get_contacts_in_group(Group(id=g_id))
     app.contact.add_contact_to_group_by_id(c_id, g_id)
