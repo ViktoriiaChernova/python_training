@@ -31,7 +31,6 @@ class ORMFixture:
             return Group(id=group.id, name=group.name, header=group.header, footer=group.footer)
         return list(map(convert, groups))
 
-
     @db_session
     def get_group_list(self):
         return self.convert_groups_to_model(select(g for g in ORMFixture.ORMGroup))

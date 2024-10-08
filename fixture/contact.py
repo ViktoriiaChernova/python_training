@@ -208,6 +208,14 @@ class ContactHelper:
         wd.find_element_by_name("update").click()
         self.contact_cache = None
 
+    def add_contact_to_group_by_id(self, c_id, g_id):
+        wd = self.app.wd
+        self.return_homepage()
+        wd.find_element_by_css_selector("input[value='%s']" % c_id).click()
+        wd.find_element_by_css_selector('select[name="to_group"] > option[value="%s"]' % g_id).click()
+        wd.find_element_by_name("add").click()
+        self.contact_cache = None
+
 
 
 
