@@ -12,6 +12,7 @@ def test_add_contact_to_group(app, db):
                                bday="29", bmonth="September", byear="1989", aday="19", amonth="February", ayear="1989"))
     if len(db.get_group_list()) == 0:
         app.group.create(Group(name="test"))
+    # добавить проверку что в выбранной группе нет выбранного контакта (?добавить удаление или выбрать другую группу?
     contact = random.choice(db.get_contact_list())
     c_id = contact.id
     g_id = random.choice(db.get_group_list()).id
